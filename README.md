@@ -1,6 +1,27 @@
 # What even is this?
 
-Glad you asked! Community Controller aims to bring a 24/7 interactive stream to your favorite platforms! So kick back, relax, and take control! Starting with Twitch Plays Nintendo Switch!
+Glad you asked! Community Controller aims to bring a sociable, 24/7 interactive stream to your favorite platforms! So kick back, relax, and take control! We run a selection of games available for Nintendo Switch and 3DS.
+
+Four of these games have been featured and beaten here before:
+* Kirby: Star Allies
+* Super Mario Odyssey
+* The Legend of Zelda: Breath of the Wild
+* The Legend of Zelda: Ocarina of Time 3D
+
+## Can everyone play?
+
+Yes!
+(XXX: explain our stance on trolling, good faith, and rule 4 here)
+
+## How do I control the game?
+
+Simply type your command(s) in chat!
+
+To make things interesting, entering many commands (comma-separated) within a message is allowed, and causes them to run in quick succession! Only up to 5 or 8 commands (per-game limit) are allowed per message; exceeding this limit causes the entire command sequence to be ignored.
+
+
+## What are valid commands?
+
 
 ## Controls
 
