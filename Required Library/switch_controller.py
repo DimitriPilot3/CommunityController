@@ -85,14 +85,22 @@ class Packet:
 
     def move_left_stick(self, x, y):
         with self.lock:
-            self.lx = x
-            self.ly = y
+            if x is not None:
+                self.lx = x
+            
+            if y is not None:
+                self.ly = y
+            
             return self
 
     def move_right_stick(self, x, y):
         with self.lock:
-            self.rx = x
-            self.ry = y
+            if x is not None:
+                self.rx = x
+            
+            if y is not None:
+                self.ry = y
+            
             return self
 
     def get_bytes(self):
@@ -129,36 +137,40 @@ class Controller:
     #moving
     def move_forward(self, mode = MODE_BACK_VIEW):
         if mode == MODE_BACK_VIEW:
-            self.move_left_stick(STICK_CENTER, STICK_MIN)
+            self.move_up()
         elif mode == MODE_SIDESCROLLER:
             self.move_right()
 
     def move_backward(self, mode = MODE_BACK_VIEW):
         if mode == MODE_BACK_VIEW:
-            self.move_left_stick(STICK_CENTER, STICK_MAX)
+            self.move_down()
         elif mode == MODE_SIDESCROLLER:
             self.move_left()
+
+    def move_up(self):
+        self.move_left_stick(None, STICK_MIN)
+
     def move_down(self):
-        self.move_left_stick(STICK_CENTER, STICK_MAX)
+        self.move_left_stick(None, STICK_MAX)
 
     def move_left(self):
-        self.move_left_stick(STICK_MIN, STICK_CENTER)
+        self.move_left_stick(STICK_MIN, None)
 
     def move_right(self):
-        self.move_left_stick(STICK_MAX, STICK_CENTER)
+        self.move_left_stick(STICK_MAX, None)
 
     #looking
     def look_up(self):
-        self.move_right_stick(STICK_CENTER, STICK_MIN)
+        self.move_right_stick(None, STICK_MIN)
 
     def look_down(self):
-        self.move_right_stick(STICK_CENTER, STICK_MAX)
+        self.move_right_stick(None, STICK_MAX)
 
     def look_left(self):
-        self.move_right_stick(STICK_MIN, STICK_CENTER)
+        self.move_right_stick(STICK_MIN, None)
 
     def look_right(self):
-        self.move_right_stick(STICK_MAX, STICK_CENTER)
+        self.move_right_stick(STICK_MAX, None)
 
     #misc
     def release_left_stick(self):
