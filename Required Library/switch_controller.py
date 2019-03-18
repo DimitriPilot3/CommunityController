@@ -149,47 +149,61 @@ class Controller:
     #moving
     def move_forward(self, mode = MODE_BACK_VIEW):
         if mode == MODE_BACK_VIEW:
-            self.move_up()
+            return self.move_up()
         elif mode == MODE_SIDESCROLLER:
-            self.move_right()
+            return self.move_right()
+        else:
+            return self
 
     def move_backward(self, mode = MODE_BACK_VIEW):
         if mode == MODE_BACK_VIEW:
-            self.move_down()
+            return self.move_down()
         elif mode == MODE_SIDESCROLLER:
-            self.move_left()
+            return self.move_left()
+        else:
+            return self
 
     def move_up(self):
         self.state.move_left_stick_y(STICK_MIN)
+        return self
 
     def move_down(self):
         self.state.move_left_stick_y(STICK_MAX)
+        return self
 
     def move_left(self):
         self.state.move_left_stick_x(STICK_MIN)
+        return self
 
     def move_right(self):
         self.state.move_left_stick_x(STICK_MAX)
+        return self
 
     #looking
     def look_up(self):
         self.state.move_right_stick_y(STICK_MIN)
+        return self
 
     def look_down(self):
         self.state.move_right_stick_y(STICK_MAX)
+        return self
 
     def look_left(self):
         self.state.move_right_stick_x(STICK_MIN)
+        return self
 
     def look_right(self):
         self.state.move_right_stick_x(STICK_MAX)
+        return self
 
     #misc
     def release_left_stick(self):
         self.move_left_stick(STICK_CENTER, STICK_CENTER)
+        return self
 
     def release_right_stick(self):
         self.move_right_stick(STICK_CENTER, STICK_CENTER)
+        return self
 
     def wait(self, wait_time=0):
         last_time = self._last_update
